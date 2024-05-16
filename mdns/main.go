@@ -29,7 +29,7 @@ func main() {
 	entriesCh := make(chan *mdns.ServiceEntry, 4)
 	go func() {
 		for entry := range entriesCh {
-			fmt.Printf("Got new entry: %v\n", entry)
+			fmt.Printf("Got new entry: %#v\n", *entry)
 		}
 	}()
 

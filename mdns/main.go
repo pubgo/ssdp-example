@@ -6,7 +6,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"time"
 
 	"github.com/hashicorp/mdns"
@@ -14,17 +13,17 @@ import (
 )
 
 func main() {
-	go func() {
-		host, _ := os.Hostname()
-		info := []string{"My awesome service"}
-		service, _ := mdns.NewMDNSService(host, "_foobar._tcp", "", "", 8000, nil, info)
+	// go func() {
+	// 	host, _ := os.Hostname()
+	// 	info := []string{"My awesome service"}
+	// 	service, _ := mdns.NewMDNSService(host, "_foobar._tcp", "", "", 8000, nil, info)
 
-		// Create the mDNS server, defer shutdown
-		server, _ := mdns.NewServer(&mdns.Config{Zone: service})
-		defer server.Shutdown()
+	// 	// Create the mDNS server, defer shutdown
+	// 	server, _ := mdns.NewServer(&mdns.Config{Zone: service})
+	// 	defer server.Shutdown()
 
-		<-time.After(time.Second * 10)
-	}()
+	// 	<-time.After(time.Second * 10)
+	// }()
 	// Make a channel for results and start listening
 	entriesCh := make(chan *mdns.ServiceEntry, 4)
 	go func() {
@@ -34,7 +33,7 @@ func main() {
 	}()
 
 	// Start the lookup
-	mdns.Lookup("_foobar._tcp", entriesCh)
+	mdns.Lookup("*._tcp", entriesCh)
 	close(entriesCh)
 	<-time.After(time.Second * 10)
 }

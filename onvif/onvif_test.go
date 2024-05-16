@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net"
 	"testing"
+
+	"github.com/use-go/onvif"
 )
 
 func TestHNet(t *testing.T) {
@@ -27,6 +29,20 @@ func TestHNet(t *testing.T) {
 			default:
 				panic(v)
 			}
+		}
+	}
+}
+
+func TestGetAvailableDevicesAtSpecificEthernetInterface(t *testing.T) {
+	s, err := onvif.GetAvailableDevicesAtSpecificEthernetInterface("en0")
+	if err != nil {
+		panic(err)
+	}
+
+	for i := range s {
+		fmt.Printf("GetDeviceInfo %#v\n", s[i].GetDeviceInfo())
+		for k, v := range s[i].GetServices() {
+			fmt.Println(k, v)
 		}
 	}
 }

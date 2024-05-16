@@ -3,7 +3,12 @@ package main
 // https://github.com/hashicorp/mdns
 // https://github.com/pion/mdns
 // https://github.com/grandcat/zeroconf
-
+// https://github.com/arduino/mdns-discovery
+// https://github.com/blake/external-mdns
+// https://github.com/brutella/dnssd
+// https://github.com/RedTeamPentesting/pretender
+// https://github.com/openshift/coredns-mdns
+//
 import (
 	"fmt"
 	"time"

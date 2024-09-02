@@ -8,6 +8,7 @@ require (
 	github.com/ghettovoice/gosip v0.0.0-20240401112151-56d750b16008
 	github.com/grandcat/zeroconf v1.0.0
 	github.com/hashicorp/mdns v1.0.5
+	github.com/huin/goupnp v1.3.0
 	github.com/schollz/peerdiscovery v1.7.2
 	github.com/use-go/onvif v0.0.9
 )
@@ -35,6 +36,7 @@ require (
 	github.com/x-cray/logrus-prefixed-formatter v0.5.2 // indirect
 	golang.org/x/crypto v0.15.0 // indirect
 	golang.org/x/net v0.18.0 // indirect
+	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.14.0 // indirect
 	golang.org/x/term v0.14.0 // indirect
 )

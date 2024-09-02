@@ -1,4 +1,4 @@
-package onvif_test
+package main
 
 import (
 	"context"
@@ -65,6 +65,7 @@ func main() {
 	}
 
 	for i := range s {
+		fmt.Println(s[i].GetDeviceInfo())
 		fmt.Printf("GetDeviceInfo %#v\n", s[i].GetDeviceInfo())
 		for k, v := range s[i].GetServices() {
 			if strings.Contains(v, "172.20.22.146") {
@@ -73,7 +74,7 @@ func main() {
 		}
 	}
 
-	client1()
+	//client1()
 }
 
 func client1() {
